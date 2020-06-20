@@ -56,6 +56,22 @@ void Get_Device_Parameters()
 
   error_code = regs.h.al;
 
+  printf("Debug:Informatation of BPB\n");
+  printf("Debug:bytes_per_sector= %u\n", parameter_block.bpb.bytes_per_sector);
+  printf("Debug:sectors_per_cluster= %u\n", parameter_block.bpb.sectors_per_cluster);
+  printf("Debug:reserved_sectors= %u\n", parameter_block.bpb.reserved_sectors);
+  printf("Debug:number_of_fats= %u\n", parameter_block.bpb.number_of_fats);
+  printf("Debug:root_directory_entries= %u\n", parameter_block.bpb.root_directory_entries);
+  printf("Debug:total_sectors= %u\n", parameter_block.bpb.total_sectors);
+  printf("Debug:media_descriptor= %u\n", parameter_block.bpb.media_descriptor);
+  printf("Debug:sectors_per_fat= %u\n", parameter_block.bpb.sectors_per_fat);
+  printf("Debug:sectors_per_cylinder= %u\n", parameter_block.bpb.sectors_per_cylinder);
+  printf("Debug:number_of_heads= %u\n", parameter_block.bpb.number_of_heads);
+  printf("Debug:number_of_hidden_sectors_low= %u\n", parameter_block.bpb.hidden_sectors_low);
+  printf("Debug:number_of_hidden_sectors_high= %u\n", parameter_block.bpb.hidden_sectors_high);
+  printf("Debug:number_of_large_sector_count_low= %u\n", parameter_block.bpb.large_sector_count_low);
+  printf("Debug:number_of_large_sector_count_high= %u\n", parameter_block.bpb.large_sector_count_high);
+
   if ( (regs.x.cflag != 0) ||
        /* (parameter_block.bpb.sectors_per_fat == 0xffff) || *//* *** MARKER */
        (parameter_block.bpb.sectors_per_fat > 512) ) /* not plausible for FAT1x */
